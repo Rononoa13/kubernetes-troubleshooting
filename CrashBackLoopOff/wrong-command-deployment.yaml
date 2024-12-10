@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crashloop-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crashloop-example
+  template:
+    metadata:
+      labels:
+        app: crashloop-example
+    spec:
+      containers:
+        - name: crashloop-example
+          image: wrong-command-crashloop-example
+
